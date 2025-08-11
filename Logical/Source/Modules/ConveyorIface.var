@@ -1,6 +1,0 @@
-VAR
-    gConveyor : ConveyorIfaceType;
-END_VAR
-
-VAR CONSTANT
-END_VAR

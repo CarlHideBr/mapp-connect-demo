@@ -1,6 +1,0 @@
-VAR
-    heaterUp : BOOL := TRUE;
-END_VAR
-
-VAR CONSTANT
-END_VAR
