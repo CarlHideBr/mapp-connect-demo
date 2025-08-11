@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&amp;R mapp Connect browse example</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <script type="module" src="../js/browse.js" async></script>
+    <style>
+        #browsePath {
+            width: 100%;
+            max-height: 40vh;
+            overflow: auto;
+        }
+
+        #browsePath table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #browsePath th,
+        #browsePath td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #browsePath tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #browsePath tr:hover {
+            background-color: #ddd;
+        }
+
+        #browsePath th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home"><a href="../index.html" class="home">Home</a></div>
+    <h1>Example for browsing an OPC UA node</h1>
+    <section>
+        <div class="button-group">
+            <button id="connectButton">Connect</button>
+            <button id="disconnectButton" disabled>Disconnect</button>
+        </div>
+        <div class="input-group">
+            <label for="connectStatus">Status</label>
+            <input type="text" id="connectStatus" readonly>
+        </div>
+    </section>
+    <section>
+        <div class="input-group">
+            <label for="namespaceInput">Namespace</label>
+            <input type="text" id="namespaceInput" value="http://br-automation.com/OpcUa/PLC/PV/"
+                placeholder="http://br-automation.com/OpcUa/PLC/PV/">
+            <label for="nodeIdInput">NodeId</label>
+            <input type="text" id="nodeIdInput" value="s=::" placeholder="s=::">
+            <wrapper>
+                <button id="browse" disabled>Browse</button>
+                <button id="back" disabled>Back</button>
+            </wrapper>
+        </div>
+
+        <div class="input-group">
+            <label for="browseStatus">Status</label>
+            <input type="text" id="browseStatus" readonly>
+        </div>
+
+        <p id="browsePath"></p>
+    </section>
+</body>
+
+</html>

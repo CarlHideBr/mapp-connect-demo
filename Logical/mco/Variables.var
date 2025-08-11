@@ -1,0 +1,4 @@
+VAR
+	myVar : LREAL := 12.3;
+	myVar2 : REAL := 11;
+END_VAR

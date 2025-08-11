@@ -1,0 +1,3 @@
+.kvRow{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #1f2840}
+.kvRow__k{color:#7c8aa5}
+.kvRow__v{color:#e6e8ef;font-weight:600}

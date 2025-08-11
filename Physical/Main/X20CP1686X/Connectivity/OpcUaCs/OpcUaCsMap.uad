@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="6.0"?>
+<OpcUaSource FileVersion="10">
+  <Aliases>
+    <ACLAliases />
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <Module Name="&lt;Default&gt;">
+    <Task Name="method">
+      <Method Name="add" />
+    </Task>
+    <Task Name="mco">
+      <Variable Name="myVar" />
+      <Variable Name="myVar2" />
+    </Task>
+  </Module>
+</OpcUaSource>

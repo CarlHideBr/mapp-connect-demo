@@ -1,0 +1,7 @@
+VAR
+	gAlarmHandler : AlarmHandlerIfaceType;
+END_VAR
+
+VAR CONSTANT
+	(* Reserved for severities/codes mapping if needed later *)
+END_VAR

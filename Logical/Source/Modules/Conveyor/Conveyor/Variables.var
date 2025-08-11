@@ -1,0 +1,7 @@
+VAR
+    convCnt : UDINT;
+    convUp  : BOOL := TRUE;
+END_VAR
+
+VAR CONSTANT
+END_VAR

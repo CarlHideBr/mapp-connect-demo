@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&amp;R mapp Connect textsystem example</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <script type="module" src="../js/textsystem.js" async></script>
+</head>
+
+<body>
+    <div class="home"><a href="../index.html" class="home">Home</a></div>
+    <h1>Example for reading texts from the textsystem</h1>
+    <section>
+        <div class="input-group">
+            <label for="usernameInput">Username</label>
+            <input type="text" id="usernameInput">
+            <label for="passwordInput">Password</label>
+            <input type="password" id="passwordInput">
+        </div>
+        <div class="button-group">
+            <button id="authButton" disabled>Authenticate</button>
+        </div>
+        <div class="input-group">
+            <label for="authStatus">Status</label>
+            <input type="text" id="authStatus" readonly>
+        </div>
+    </section>
+    <section>
+        <div class="input-group">
+            <label for="namespaceInput">Namespace</label>
+            <input type="text" id="namespaceInput" value="Default-Namespace">
+            <label for="textIdInput">Text ID</label>
+            <input type="text" id="textIdInput" value="Samples.HELLO_WORLD">
+        </div>
+        <div class="input-group">
+            <label for="languageInput">Language</label>
+            <select id="languageInput"></select>
+        </div>
+        <div class="button-group">
+            <button id="readButton" disabled>Read</button>
+        </div>
+        <div class="input-group">
+            <label for="readInput">Text</label>
+            <div class="inline">
+                <input type="text" id="readInput" readonly>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="readStatus">Status</label>
+            <input type="text" id="readStatus" readonly>
+        </div>
+    </section>
+</body>
+
+</html>

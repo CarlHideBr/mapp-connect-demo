@@ -1,0 +1,13 @@
+VAR
+	output1 : DINT;
+	input1 : DINT;
+	UaSrv_MethodOperate_0 : UaSrv_MethodOperate;
+	state : State := WaitForCall;
+END_VAR
+VAR CONSTANT
+	cMethodName : STRING[32] := 'add';
+END_VAR
+VAR
+	methodCalled : BOOL := FALSE;
+	input2 : DINT;
+END_VAR

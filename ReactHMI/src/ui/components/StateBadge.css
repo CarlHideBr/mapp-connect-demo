@@ -1,0 +1,3 @@
+.stateBadge{display:flex;align-items:baseline;gap:8px}
+.stateBadge__state{padding:4px 8px;background:#141925;border:1px solid #21283a;border-radius:6px;color:#9ecbff;font-weight:600}
+.stateBadge__sub{color:#9aa3b2;font-size:12px}

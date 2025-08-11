@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio WorkingVersion="6.3" FileVersion="4.9"?>
+<Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="X20CP1686X" Type="X20CP1686X" Version="1.8.2.0">
+    <Connector Name="IF2">
+      <Parameter ID="ActivateDevice" Value="1" />
+    </Connector>
+    <Parameter ID="ConfigurationID" Value="ai_powered_plc_development_mappConnectDemo" />
+    <Parameter ID="AutomaticTransferOfUserfiles" Value="on" />
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="USER" />
+    <Parameter ID="FileDevicePath1" Value="USER_PATH" />
+    <Group ID="FileDevice2" />
+    <Parameter ID="FileDeviceName2" Value="USER_web" />
+    <Parameter ID="FileDevicePath2" Value="USER_PATH/web" />
+    <Parameter ID="ActivateWebServer" Value="1" />
+    <Parameter ID="WebServerProtocol" Value="1" />
+  </Module>
+</Hardware>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&amp;R mapp connect batch request example</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <script type="module" src="../js/batchRequest.js" async></script>
+</head>
+
+<body>
+	<div class="home"><a href="../index.html" class="home">Home</a></div>
+    <h1>Example for batch requests</h1>
+    <section>
+        <div class="button-group">
+            <button id="connectButton">Connect</button>
+            <button id="disconnectButton" disabled>Disconnect</button>
+        </div>
+        <div class="input-group">
+            <label for="connectStatus">Status</label>
+            <input type="text" id="connectStatus" readonly>
+        </div>
+    </section>
+    <section>
+        <div class="input-group">
+            <label for="namespaceInput">Namespace</label>
+            <input type="text" id="namespaceInput" value="http://br-automation.com/OpcUa/PLC/PV/">
+            <label for="nodeIdInput1">NodeId 1</label>
+            <input type="text" id="nodeIdInput1" value="s=::mco:myVar" />
+            <label for="nodeIdInput2">NodeId 2</label>
+            <input type="text" id="nodeIdInput2" value="s=::mco:myVar2" />
+        </div>
+        <div class="input-group">
+            <label for="readInput">Read values</label>
+            <div class="inline">
+                <input type="text" id="readInput" />
+                <button disabled id="readButton">Read</button>
+            </div>
+            <label for="writeInput">Write values</label>
+            <div class="inline">
+                <input type="text" placeholder="1, 2" id="writeInput" />
+                <button disabled id="writeButton">Write</button>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="readWriteStatus">Status</label>
+            <input type="text" id="readWriteStatus" readonly>
+        </div>
+    </section>
+</body>
+
+</html>

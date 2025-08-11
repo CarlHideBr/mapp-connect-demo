@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/mc/api.ts","./src/mc/opcuaapi.ts","./src/mc/session.ts","./src/mc/mcconfig.ts","./src/mc/types.ts","./src/types/ambient.d.ts","./src/ui/app.tsx","./src/ui/chartpanel.tsx","./src/ui/dashboard.tsx","./vite.config.ts"],"version":"5.9.2"}

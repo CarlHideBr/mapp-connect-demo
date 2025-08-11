@@ -1,0 +1,10 @@
+OPCUA_METHOD add
+	ARG_INPUT
+		in1 : Int32 := input1;
+		in2 : Int32 := input2;
+	END_ARG
+	ARG_OUTPUT
+		out1 : Int32 := output1;
+	END_ARG
+END_OPCUA_METHOD
+

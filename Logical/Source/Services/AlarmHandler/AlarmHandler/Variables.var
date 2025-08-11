@@ -1,0 +1,5 @@
+
+VAR
+	logHead : UINT;        (* ring buffer head index [0..63] *)
+	demoTick : UDINT;      (* demo timer for possible test alarms *)
+END_VAR
