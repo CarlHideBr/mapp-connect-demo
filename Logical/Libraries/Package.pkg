@@ -11,5 +11,7 @@
     <Object Type="Library" Language="binary" Description="The FileIO library provides function blocks for file handling.">FileIO</Object>
     <Object Type="Library" Language="binary" Description="The AsOpcUac library supports communication with OPC UA servers">AsOpcUac</Object>
     <Object Type="Library" Language="binary" Description="The AsOpcUas library provides interfaces to the OPC UA server">AsOpcUas</Object>
+    <Object Type="Library" Language="Binary" Description="Advanced alarm management">MpAlarmX</Object>
+    <Object Type="Library" Language="Binary" Description="Core library for mapp components">MpBase</Object>
   </Objects>
 </Package>

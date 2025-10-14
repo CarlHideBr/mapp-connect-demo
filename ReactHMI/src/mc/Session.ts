@@ -49,6 +49,16 @@ export default class Session {
       return json.responses.map((resp: any) => { const status = new Status(resp.body.status); return { status, ...(status.isGood() && { value: resp.body }) }; });
     }
   }
+  // Convenience helpers specifically for the common Value attribute (case-sensitive on server)
+  async readValue(nodeId: string | Array<{ nodeId: string }>) {
+    if (Array.isArray(nodeId)) {
+      return this.read(nodeId.map(n => ({ nodeId: n.nodeId, attribute: 'Value' })), 'Value');
+    }
+    return this.read(nodeId, 'Value');
+  }
+  async writeValue(nodeId: string, value: any) {
+    return this.write(nodeId, 'Value', value);
+  }
   async write(nodeId: string | Array<{ nodeId: string; attributeName: string; value: any }>, attributeName: string, value?: any) {
     if (!Array.isArray(nodeId)) {
       const response = await this.#opcUaApi.sessionsSessionIdNodesNodeIdAttributesAttributeNamePut(this.#id, nodeId, attributeName, { value });
@@ -60,6 +70,13 @@ export default class Session {
       const json = await responses.json();
       return json.responses.map((resp: any) => new Status(resp.body.status));
     }
+  }
+  async resolveNamespace(namespaceUri: string): Promise<number> {
+    const resp = await this.#opcUaApi.sessionsSessionIdNamespacesNamespaceUriGet(this.#id, namespaceUri);
+    if (!resp.ok) throw new Error(`resolveNamespace failed: ${resp.status}`);
+    const json = await resp.json();
+    if (typeof json.index !== 'number') throw new Error('namespace response missing index');
+    return json.index;
   }
   #startKeepAlive() {
     this.#keepAliveInterval = window.setInterval(() => {

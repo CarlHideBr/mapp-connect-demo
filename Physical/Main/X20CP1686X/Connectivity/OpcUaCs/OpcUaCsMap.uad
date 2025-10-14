@@ -8,6 +8,12 @@
     <EngineeringUnitAliases />
   </Aliases>
   <Module Name="&lt;Default&gt;">
+    <GlobalVariables Name="Global Variables">
+      <Variable Name="gConveyor" />
+      <Variable Name="gHeater" />
+      <Variable Name="gMain" RecursiveEnable="2" />
+      <Variable Name="gRobot" />
+    </GlobalVariables>
     <Task Name="method">
       <Method Name="add" />
     </Task>
@@ -15,5 +21,13 @@
       <Variable Name="myVar" />
       <Variable Name="myVar2" />
     </Task>
+    <Task Name="Conveyor" />
+    <Task Name="Main">
+      <Variable Name="MachineHmi" RecursiveEnable="2" />
+      <Variable Name="runRequest" />
+    </Task>
+    <Task Name="AlarmHandl" />
+    <Task Name="Heater" />
+    <Task Name="Robot" />
   </Module>
 </OpcUaSource>

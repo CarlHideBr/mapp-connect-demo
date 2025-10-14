@@ -3,6 +3,9 @@
 <Configuration>
   <Element ID="ClientServerConfiguration" Type="uacfg">
     <Property ID="OpcUaCs" Value="1" />
+    <Group ID="System">
+      <Property ID="Multicore" Value="1" />
+    </Group>
     <Group ID="Network">
       <Property ID="TcpPort" Value="4840" />
     </Group>
@@ -19,7 +22,7 @@
           <Property ID="Basic256Sha256" Value="1" />
         </Group>
         <Group ID="Modes">
-          <Property ID="Sign" Value="0" />
+          <Property ID="Sign" Value="1" />
           <Property ID="SignAndEncrypt" Value="1" />
         </Group>
       </Group>
@@ -41,6 +44,7 @@
           <Property ID="UserRole0" Value="Everyone" />
         </Group>
       </Group>
+      <Property ID="AppCertificateTrustListValidation" Value="1" />
     </Group>
     <Group ID="Limits">
       <Group ID="General">

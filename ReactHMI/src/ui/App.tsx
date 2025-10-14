@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { getApiBaseUrl, getPushChannelUrl, OPCUA_ENDPOINT_URL, NODE_IDS } from '../mc/mcConfig';
+import { getApiBaseUrl, getPushChannelUrl, OPCUA_ENDPOINT_URL, PLC_NAMESPACE_URI, buildNodeIds } from '../mc/mcConfig';
 import Api from '../mc/Api';
 import Session from '../mc/Session';
 import type { MachineHmiData } from '../mc/types';
@@ -34,9 +34,26 @@ export default function App() {
   const [authOk, setAuthOk] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
   const [machine, setMachine] = useState<MachineHmiData | null>(null);
+  const [nsIndex, setNsIndex] = useState<number | null>(null);
+  const [nodeIds, setNodeIds] = useState<ReturnType<typeof buildNodeIds> | null>(null);
   const { path } = useHashPath();
 
   const api = useMemo(() => new Api(getApiBaseUrl()), []);
+
+  // Debug: log origin vs resolved API base once (helps diagnose CORS / port mismatch)
+  useEffect(() => {
+    const base = getApiBaseUrl();
+    if (base.startsWith('http')) {
+      // If absolute URL and host/port differ, warn developer
+      try {
+        const u = new URL(base);
+        if (u.host !== window.location.host) {
+          console.warn('[mcConfig] API base host mismatch. origin=', window.location.host, ' apiHost=', u.host, ' -> potential CORS unless proxying');
+        }
+      } catch {}
+    }
+    console.log('[mcConfig] origin', window.location.origin, 'apiBase', base, 'pushUrl', getPushChannelUrl());
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -51,27 +68,47 @@ export default function App() {
     const st = await s.connect(OPCUA_ENDPOINT_URL).catch((err) => { setState(String(err)); return undefined; });
     if (!st) return;
     setSession(s);
-    const result = await s.read(NODE_IDS.machineHmi, 'value') as any;
-    if (result.status?.isGood()) {
-      const val = result.value as MachineHmiData;
-      setMachine(val);
-      setState(val?.State ?? 'Connected');
-      setSubstate(val?.Substate ?? '');
+    try {
+      const idx = await s.resolveNamespace(PLC_NAMESPACE_URI);
+      setNsIndex(idx);
+      const dynamic = buildNodeIds(idx);
+      setNodeIds(dynamic);
+      const result = await s.readValue(dynamic.machineHmi) as any;
+      if (result.status?.isGood()) {
+        const val = result.value as MachineHmiData;
+        setMachine(val);
+        setState(val?.State ?? 'Connected');
+        setSubstate(val?.Substate ?? '');
+        return;
+      }
+      // Retry once with forced refetch if first status not good
+      const retry = await s.readValue(dynamic.machineHmi) as any;
+      if (retry.status?.isGood()) {
+        const val = retry.value as MachineHmiData;
+        setMachine(val);
+        setState(val?.State ?? 'Connected');
+        setSubstate(val?.Substate ?? '');
+      } else {
+        setState(`Read failed code=${retry.status?.code}`);
+      }
+    } catch (e: any) {
+      setState(`Init error: ${e?.message || e}`);
     }
   }
 
   async function writeCmd(cmd: 'Start' | 'Stop') {
     if (!session) return;
-    const node = cmd === 'Start' ? NODE_IDS.start : NODE_IDS.stop;
-    await session.write(node, 'value', true);
+    if (!nodeIds) return;
+    const node = cmd === 'Start' ? nodeIds.start : nodeIds.stop;
+    await session.writeValue(node, true).catch(err => console.error('write error', err));
   }
 
   useEffect(() => {
-    if (!session) return;
+    if (!session || !nodeIds) return;
     let alive = true;
     const id = window.setInterval(async () => {
       try {
-        const res: any = await session.read(NODE_IDS.machineHmi, 'value');
+        const res: any = await session.readValue(nodeIds.machineHmi);
         if (alive && res.status?.isGood()) {
           const val = res.value as MachineHmiData;
           setMachine(val);
@@ -81,7 +118,7 @@ export default function App() {
       } catch {}
     }, 1000);
     return () => { alive = false; window.clearInterval(id); };
-  }, [session]);
+  }, [session, nodeIds]);
 
   return (
     <div style={{ width: shellSize.width, height: shellSize.height, margin: '0 auto', background: '#0b0d13', color: '#e6e8ef', fontFamily: 'Inter, system-ui, Segoe UI, Roboto, Arial' }}>

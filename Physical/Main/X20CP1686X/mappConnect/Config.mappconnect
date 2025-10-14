@@ -10,63 +10,93 @@
     <Group ID="WebServerEndpointConfiguration">
       <Group ID="Endpoint[1]" Description="Allow .html files for all users">
         <Property ID="Endpoint" Value="*.html" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[2]" Description="Allow stylesheet files for all users">
         <Property ID="Endpoint" Value="/css/*.css" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[3]" Description="Allow javascript files for all users">
         <Property ID="Endpoint" Value="/js/*.js" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[4]" Description="Allow all API endpoints for all users">
         <Property ID="Endpoint" Value="/api/1.0/*" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[5]" Description="Allow favicon and icon files">
         <Property ID="Endpoint" Value="*.ico" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[6]" Description="Allow common image types">
         <Property ID="Endpoint" Value="*.png" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[7]" Description="Allow common image types">
         <Property ID="Endpoint" Value="*.jpg" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[8]" Description="Allow common image types">
         <Property ID="Endpoint" Value="*.svg" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[9]" Description="Allow fonts">
         <Property ID="Endpoint" Value="*.woff2" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[10]" Description="Allow fonts">
         <Property ID="Endpoint" Value="*.woff" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[11]" Description="Allow fonts">
         <Property ID="Endpoint" Value="*.ttf" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[12]" Description="Allow source maps (dev)">
         <Property ID="Endpoint" Value="*.map" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[13]" Description="Allow typical asset folders">
         <Property ID="Endpoint" Value="/assets/*" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[14]" Description="Allow typical image folder">
         <Property ID="Endpoint" Value="/img/*" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
       <Group ID="Endpoint[15]" Description="Allow additional static folder">
         <Property ID="Endpoint" Value="/static/*" />
-        <Group ID="Roles" />
+        <Group ID="Roles">
+          <Property ID="Role[1]" Value="Everyone" />
+        </Group>
       </Group>
     </Group>
     <Group ID="OpcUaServerWhitelist">
