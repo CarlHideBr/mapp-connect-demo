@@ -121,7 +121,7 @@ export default function App() {
   }, [session, nodeIds]);
 
   return (
-    <div style={{ width: shellSize.width, height: shellSize.height, margin: '0 auto', background: '#0b0d13', color: '#e6e8ef', fontFamily: 'Inter, system-ui, Segoe UI, Roboto, Arial' }}>
+    <div style={{ width: shellSize.width, height: shellSize.height, margin: 0, background: '#0b0d13', color: '#e6e8ef', fontFamily: 'Inter, system-ui, Segoe UI, Roboto, Arial' }}>
       <header style={{ padding: 12, borderBottom: '1px solid #171a21', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0f1118' }}>
         <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
           <span style={{ fontWeight: 700, letterSpacing: 0.4 }}>Machine HMI</span>

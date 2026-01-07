@@ -1,1 +1,143 @@
-.centerPage{display:grid;place-items:center;height:100%;color:#8ea0b8}
+.recipePage {
+  padding: 8px;
+  animation: fadeIn 0.4s ease-in;
+}
+
+.recipeHeader {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #1a2133;
+}
+
+.recipeHeader h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #c7d6ff;
+  letter-spacing: 0.3px;
+}
+
+.recipeHeader p {
+  margin: 0;
+  color: #8ea0b8;
+  font-size: 14px;
+}
+
+.recipeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.recipeCard {
+  background: linear-gradient(135deg, #0f1320 0%, #141827 100%);
+  border: 1px solid #1e2942;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.recipeCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4a90e2, #7c5ce8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.recipeCard:hover {
+  border-color: #2e4068;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.recipeCard:hover::before {
+  opacity: 1;
+}
+
+.recipeCard h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #e6e8ef;
+}
+
+.recipeParam {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #1a2133;
+  font-size: 14px;
+}
+
+.recipeParam:last-child {
+  border-bottom: none;
+}
+
+.recipeParam__label {
+  color: #8ea0b8;
+}
+
+.recipeParam__value {
+  color: #c7d6ff;
+  font-weight: 600;
+}
+
+.recipeActions {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #1a2133;
+  display: flex;
+  gap: 8px;
+}
+
+.recipeBtn {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #1e2942;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.recipeBtn--primary {
+  background: linear-gradient(135deg, #1a2b4b, #2d4a7c);
+  color: #e6e8ef;
+}
+
+.recipeBtn--primary:hover {
+  background: linear-gradient(135deg, #2d4a7c, #3a5f9e);
+  border-color: #3a5f9e;
+}
+
+.recipeBtn--secondary {
+  background: #0f1320;
+  color: #9aa3b2;
+}
+
+.recipeBtn--secondary:hover {
+  background: #171a28;
+  color: #c7d6ff;
+  border-color: #2e4068;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

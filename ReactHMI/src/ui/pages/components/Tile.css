@@ -1,2 +1,44 @@
-.tile{background:#0f1320;border:1px solid #1a2133;border-radius:10px;padding:12px}
-.tile__title{margin:0 0 8px 0;color:#c7d6ff;font-size:14px;font-weight:700;letter-spacing:.3px}
+.tile {
+  background: linear-gradient(135deg, #0f1320 0%, #141827 100%);
+  border: 1px solid #1e2942;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4a90e2, #7c5ce8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tile:hover {
+  border-color: #2e4068;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tile:hover::before {
+  opacity: 1;
+}
+
+.tile__title {
+  margin: 0 0 16px 0;
+  color: #e6e8ef;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #c7d6ff, #a8c0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
