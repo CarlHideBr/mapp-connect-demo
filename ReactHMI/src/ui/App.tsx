@@ -105,6 +105,8 @@ export default function App() {
     await session.writeValue(node, true).catch(err => console.error('write error', err));
   }
 
+
+  // Read data from PLC
   useEffect(() => {
     if (!session || !nodeIds) return;
     let alive = true;
