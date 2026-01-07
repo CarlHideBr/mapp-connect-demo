@@ -11,6 +11,7 @@ declare global {
   namespace JSX {
     interface IntrinsicElements {
       'obc-top-bar': any;
+      'obc-status-text': any;
     }
   }
 }
