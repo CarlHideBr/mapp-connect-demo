@@ -8,7 +8,9 @@ import StatusPage from './pages/Status';
 import AlarmPage from './pages/Alarm';
 import RecipePage from './pages/Recipe';
 import SettingsPage from './pages/Settings';
+import MarinePage from './pages/Marine';
 import StateBadge from './components/StateBadge';
+import '@oicl/openbridge-webcomponents/src/palettes/variables.css';
 
 const shellSize = { width: 1366, height: 768 } as const;
 
@@ -128,6 +130,7 @@ export default function App() {
           <nav style={{ display: 'flex', gap: 12 }}>
             <NavLink to="/" active={path === '/'}>Home</NavLink>
             <NavLink to="/recipe" active={path === '/recipe'}>Recipe</NavLink>
+            <NavLink to="/marine" active={path === '/marine'}>Marine</NavLink>
             <NavLink to="/alarm" active={path === '/alarm'}>Alarm</NavLink>
             <NavLink to="/status" active={path === '/status'}>Status</NavLink>
             <NavLink to="/settings" active={path === '/settings'}>Settings</NavLink>
@@ -143,6 +146,7 @@ export default function App() {
       <main style={{ padding: 16, height: shellSize.height - 64, boxSizing: 'border-box' }}>
         {path === '/' && <Home machine={machine} />}
         {path === '/recipe' && <RecipePage />}
+        {path === '/marine' && <MarinePage machine={machine} />}
         {path === '/alarm' && <AlarmPage />}
         {path === '/settings' && <SettingsPage />}
         {path === '/status' && <StatusPage machine={machine} />}
