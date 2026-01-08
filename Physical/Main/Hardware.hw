@@ -7,7 +7,6 @@
     </Connector>
     <Parameter ID="ConfigurationID" Value="mappConnectDemo" />
     <Parameter ID="AutomaticTransferOfUserfiles" Value="on" />
-    <Parameter ID="Simulation" Value="1" />
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="USER" />
     <Parameter ID="FileDevicePath1" Value="USER_PATH" />

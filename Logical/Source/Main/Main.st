@@ -40,6 +40,7 @@ PROGRAM _CYCLIC
 	(* Aggregate HMI level flags *)
 	MachineHmi.AnyFault := MachineHmi.Conveyor.Fault OR MachineHmi.Heater.Fault OR MachineHmi.Robot.Fault;
 	MachineHmi.LineRunning := runRequest AND NOT MachineHmi.AnyFault;
+	MachineHmi.RunRequest := runRequest;
 
 	(* Interfaces already mapped above *)
 

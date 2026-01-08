@@ -22,6 +22,13 @@ export default function Home({ machine }: { machine: MachineHmiData | null }) {
         <KV k="State" v={machine?.Robot.State ?? '-'} />
         <KV k="Pos" v={`X ${machine?.Robot.X ?? '-'}  Y ${machine?.Robot.Y ?? '-'}  Z ${machine?.Robot.Z ?? '-'}`} />
       </Tile>
+      <Tile title="Run Request">
+        <KV k="Latched" v={machine ? (machine.RunRequest ? 'TRUE' : 'FALSE') : '-'} />
+      </Tile>
+      <Tile title="Machine Temperature">
+        <KV k="Temperature" v={`${machine?.Temperature?.toFixed?.(1) ?? '-'} °C`} />
+      </Tile>
+      
     </div>
   );
 }

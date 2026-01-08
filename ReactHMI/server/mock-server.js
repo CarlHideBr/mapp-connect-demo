@@ -47,7 +47,8 @@ function simulate() {
       State: 'Auto'
     },
     LineRunning: true,
-    AnyFault: false
+    AnyFault: false,
+    RunRequest: true
   }
 }
 

@@ -41,7 +41,9 @@ TYPE
 		Conveyor    : ConveyorHmiData;
 		Heater      : HeaterHmiData;
 		Robot       : RobotHmiData;
+		RunRequest  : BOOL; (* exposed internal run latch *)
 		Commands    : MachineCommandsType;
+		Temperature : REAL;  (* °C - aggregate value from Heater *)
 	END_STRUCT;
 
 END_TYPE

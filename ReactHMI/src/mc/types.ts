@@ -37,7 +37,9 @@ export type MachineHmiData = {
   };
   LineRunning: boolean;
   AnyFault: boolean;
+  RunRequest: boolean;
   State: string;
   Substate: string;
   Commands: { Start: boolean; Stop: boolean };
+  Temperature: number;
 };
